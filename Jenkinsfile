@@ -4,17 +4,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh '''
+                ./jenkins/build/mvn.sh mvn -B -DskipTests clean package
+                ./jenkins/build/build.sh
+                '''
             }
         }
         stage('Test') {
-            steps {
-                echo 'Testing..'
+            steps {                
+               sh './jenkins/test/mvn.sh mvn test'
             }
         }
         stage('Push') {
             steps {
-                echo 'Pushing....'
+                sh './jenkins/push/push.sh'
             }
         }
     }
