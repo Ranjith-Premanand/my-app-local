@@ -6,7 +6,7 @@ package com.mycompany.app;
 public class App
 {
 
-    private final String message = "Hello from Devops!";
+    private final String message = "Finally CI/CD pipeline achieved!";
 
     public App() {}
 
